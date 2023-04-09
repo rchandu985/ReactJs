@@ -1,5 +1,5 @@
 import React from "react";
-import { Link} from "react-router-dom";//mandotary
+import { Link,useParams} from "react-router-dom";//mandotary
 import { Navigate } from 'react-router-dom';
 import { useState } from "react";
 
@@ -51,3 +51,16 @@ export const Welcome=()=>{
         </div>
     )
 }
+
+const PathParams=({match})=> {
+
+        return(
+            <div>
+              
+                <h1>path params </h1>
+            </div>
+        )
+    
+}
+export default PathParams
+
