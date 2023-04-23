@@ -18,11 +18,29 @@
 //import { AudioNuera } from './components_Nuera/audio_Nuera'
 //import { VideoNuera } from './components_Nuera/video_Nuera'
 //import { Download } from './components_Nuera/download_Nuera'
-import {SearchFilter} from './components_Nuera/search_Filter_Nuera'
+//import {SearchFilter} from './components_Nuera/search_Filter_Nuera'
+//import {UseRefNuera} from './components_Nuera/useRef_Nuera'
+//import {UseReducerNuera} from './components_Nuera/use_Reducer_Nuera'
+import { ComponentANuera } from './context_api/component_A'
+import { ComponentBNuera } from './context_api/component_B'
+import { createContext,useState } from 'react'
+
+export const store=createContext();
 
 const App=()=>{
+  const [past,now]=useState(0)
   return(
-    <SearchFilter/>
+    <store.Provider value={[past,now]}>
+      <center>
+        <ComponentANuera/>
+        <ComponentBNuera/>
+        <button onClick={()=>now(past+1)}>ClickMe</button>
+      </center>
+    </store.Provider>
+    //<SearchFilter/>
+    //<UseRefNuera/>
+    //<UseReducerNuera/>
+    
   )
 }
 export default App
